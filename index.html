@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiniShop Builder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">E-ticaret kurulum sihirbazı</p>
+          <h1>MiniShop Builder ile dakikalar içinde mağazanı yayına al.</h1>
+          <p class="subtitle">
+            Mağaza adı, tema ve ürün bilgilerini gir. Sistem sana hazır bir önizleme ve
+            yayınlama kontrol listesi oluştursun.
+          </p>
+        </div>
+        <div class="hero-card">
+          <p class="hero-card-title">Bugün 1.284 mağaza yayında</p>
+          <div class="hero-card-stats">
+            <div>
+              <h3>₺2,4M</h3>
+              <span>Toplam satış hacmi</span>
+            </div>
+            <div>
+              <h3>%28</h3>
+              <span>Dönüşüm artışı</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="builder">
+        <section class="panel">
+          <h2>Mağaza bilgileri</h2>
+          <form id="store-form">
+            <label>
+              Mağaza adı
+              <input type="text" name="storeName" placeholder="Örn. Efsane Sepet" required />
+            </label>
+            <label>
+              Kategori
+              <select name="category">
+                <option value="Moda">Moda</option>
+                <option value="Elektronik">Elektronik</option>
+                <option value="Kozmetik">Kozmetik</option>
+                <option value="Ev & Yaşam">Ev & Yaşam</option>
+              </select>
+            </label>
+            <label>
+              Tema rengi
+              <input type="color" name="themeColor" value="#5b7cfa" />
+            </label>
+            <label>
+              Slogan
+              <input type="text" name="tagline" placeholder="Örn. Her bütçeye uygun" />
+            </label>
+            <div class="grid">
+              <label>
+                Kargo süresi (gün)
+                <input type="number" name="shipping" min="1" max="7" value="2" />
+              </label>
+              <label>
+                İndirim yüzdesi
+                <input type="number" name="discount" min="0" max="60" value="10" />
+              </label>
+            </div>
+            <h3>Ürün ekle</h3>
+            <label>
+              Ürün adı
+              <input type="text" name="productName" placeholder="Örn. Keten ceket" />
+            </label>
+            <div class="grid">
+              <label>
+                Fiyat (₺)
+                <input type="number" name="price" min="1" value="799" />
+              </label>
+              <label>
+                Stok
+                <input type="number" name="stock" min="1" value="24" />
+              </label>
+            </div>
+            <button type="button" id="add-product">Ürünü ekle</button>
+          </form>
+        </section>
+
+        <section class="panel preview">
+          <div class="preview-header">
+            <div>
+              <p class="eyebrow">Canlı önizleme</p>
+              <h2 id="preview-title">Efsane Sepet</h2>
+              <p id="preview-tagline">Her bütçeye uygun</p>
+            </div>
+            <span id="preview-category" class="pill">Moda</span>
+          </div>
+          <div id="preview-hero" class="preview-hero">
+            <div>
+              <p>Kargo süresi</p>
+              <h3 id="preview-shipping">2 gün</h3>
+            </div>
+            <div>
+              <p>İndirim</p>
+              <h3 id="preview-discount">%10</h3>
+            </div>
+          </div>
+          <h3>Öne çıkan ürünler</h3>
+          <div id="preview-products" class="product-grid"></div>
+          <div class="actions">
+            <button id="download-config" class="primary">Yayınlama planını indir</button>
+            <button id="reset" class="ghost">Sıfırla</button>
+          </div>
+        </section>
+
+        <section class="panel checklist">
+          <h2>Yayınlama kontrol listesi</h2>
+          <ol id="launch-checklist">
+            <li>Logo ve kurumsal renkleri yükle.</li>
+            <li>Ödeme altyapısını bağla.</li>
+            <li>Kargo firması ve fiyatlandırmayı tanımla.</li>
+            <li>İade politikasını yayınla.</li>
+            <li>Sosyal medya bağlantılarını ekle.</li>
+          </ol>
+          <div class="tip">
+            <h3>Hızlı ipucu</h3>
+            <p>
+              Ödeme sağlayıcılarıyla entegrasyon için “Tek tıkta aktivasyon”
+              modülünü etkinleştir.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <template id="product-card-template">
+      <article class="product-card">
+        <div class="product-pill">Yeni</div>
+        <h4 class="product-title"></h4>
+        <p class="product-meta"></p>
+        <p class="product-price"></p>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
